@@ -3,10 +3,8 @@ function route(pathname, handle, response, productId) {
     if (pathname.includes(".png")) {
       const color = pathname.split("/").slice(-1)[0].split("Racket.png")[0];
       handle[pathname](response, color);
-    } else if (pathname.includes("order")) {
-      handle[pathname](response, productId);
     } else {
-      handle[pathname](response);
+      handle[pathname](response, productId);
     }
   } else {
     response.writeHead(404, { "Content-Type": "text/html" });
